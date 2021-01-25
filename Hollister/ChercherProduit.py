@@ -8,8 +8,8 @@ from requests.packages.urllib3.util.retry import Retry
 
 
 
-# Désactivation des messages d'avertissement
-urllib3.disable_warnings()
+'''# Désactivation des messages d'avertissement
+#urllib3.disable_warnings()
 
 # Réglage des "Timeouts"
 class TimeoutHTTPAdapter(HTTPAdapter):
@@ -28,33 +28,33 @@ class TimeoutHTTPAdapter(HTTPAdapter):
 
 
 # Réglage des "Retries"
-retries = Retry(total=5, backoff_factor=0, status_forcelist=[429, 500, 502, 503, 504])
+retries = Retry(total=5, backoff_factor=0, status_forcelist=[429, 500, 502, 503, 504])'''
 
 
 def ChercherProduit(url_produit):
-    # Ouverture d'une session
+    """# Ouverture d'une session
     s = requests.Session()
 
      # Réglage des paramètres de la session
-    s.mount("https://", TimeoutHTTPAdapter(max_retries=retries))
+    s.mount("https://", TimeoutHTTPAdapter(max_retries=retries))"""
 
     # Configuration du header 
     user_agent = generate_user_agent(os=('mac'))
-    s.headers.update({
+    header = {
         'Content-Type': 'application/json',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'fr-fr',
         'Accept-Encoding': 'gzip, deflate, br',
         'User-Agent': user_agent,
         'Connection': 'keep-alive',
-   })
+   }
 
     # Accès à la page
-    r = s.get(url_produit, verify=False)
+    r = requests.get(url_produit, headers=header)
     print('Accès à la page terminé')
 
     # Fermeture de la session
-    s.close
+    #s.close
 
     # Recherche des informations de stock
     soup = BeautifulSoup(r.content, "html.parser")

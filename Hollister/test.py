@@ -1,9 +1,5 @@
 import requests
-import urllib3
 from user_agent import generate_user_agent
-
-# Désactivation des messages d'avertissement
-urllib3.disable_warnings()
 
 user_agent = generate_user_agent(os=('mac', 'linux'))
 url = 'https://httpbin.org/ip'
