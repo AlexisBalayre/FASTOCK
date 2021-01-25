@@ -9,7 +9,6 @@ header = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Accept-Language': 'fr-fr',
     'Accept-Encoding': 'gzip, deflate, br',
-    'Host': 'www.hollisterco.com',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.2 Safari/605.1.15',
     'Connection': 'keep-alive'
 }
