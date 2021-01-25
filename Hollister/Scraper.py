@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 # Url du produit 
 url_produit = 'https://www.hollisterco.com/shop/eu-fr/p/pantalon-chino-ultra-skinny-hollister-epic-flex-13429336?categoryId=6239368&seq=04&faceout=prod1'
