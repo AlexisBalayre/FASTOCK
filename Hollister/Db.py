@@ -28,11 +28,15 @@ def Visualisation():
 
 
 # Test unitaire fonction insertion
-
+"""
 val = [
-        ("F", 'S', 41328322, 'doudoune-effet-col-montant-41328322')
+        ("F", 'L', 41328322, 'doudoune-effet-col-montant-41328322')
     ]
 Insertion(val)
+"""
 
 # Test unitaire fonction visualisation
-# Visualisation()
+"""
+test = Visualisation()
+print(test)
+"""
