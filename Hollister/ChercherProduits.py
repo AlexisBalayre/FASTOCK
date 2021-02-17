@@ -99,12 +99,12 @@ def ChercherProduits(product_dict, id_category, list_ref, list_sizes):
         print("Recherche des produits : %s/%s" % (phase, len(list_sizes)))
 
         # Fin de tâche
-        if id_category == '85265' and phase == len(list_sizes):
+        if id_category == "85265" and phase == len(list_sizes):
             return product_dict
-        
+
         # Ralentissement du processus (sécurités anti-bot)
-        else: 
-            print('Début Pause')
+        else:
+            print("Début Pause")
             list_time = [
                 30,
                 33.5,
@@ -119,18 +119,18 @@ def ChercherProduits(product_dict, id_category, list_ref, list_sizes):
                 41.2,
                 32.33,
                 32.3133,
-                30.322, 
-                37.324, 
+                30.322,
+                37.324,
                 31.322,
                 37.032,
                 38.900,
                 30.32213,
-                33.0
+                33.0,
             ]
             time_sleep = random.choice(list_time)
             time.sleep(time_sleep)
-            print('Pause - Terminée')
-        
+            print("Pause - Terminée")
+
     return product_dict
 
 
@@ -167,17 +167,17 @@ for x in list_products_f:
 
 
 # Recherche des produits hommes
-print('Début Phase 1')
+print("Début Phase 1")
 product_dict = ChercherProduits(
     product_dict, category_homme, list_products_h, list_sizes_h
 )
-print('Phase 1 - Terminée')
+print("Phase 1 - Terminée")
 
 # Recherche des produits femmes
-print('Début Phase 2')
+print("Début Phase 2")
 product_dict = ChercherProduits(
     product_dict, category_femme, list_products_f, list_sizes_f
 )
-print('Phase 2 - Terminée')
+print("Phase 2 - Terminée")
 print("\n")
 print(product_dict)
