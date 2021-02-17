@@ -33,6 +33,9 @@ def FormateurUrl(url):
     return [product_name, id_product, id_category]
 
 
+# Tests Unitaires
+'''
 url = "https://www.hollisterco.com/shop/eu-fr/p/sweat-à-capuche-zippé-tie-dye-oversize-44492320?categoryId=85265&seq=02&faceout=model1"
 test = FormateurUrl(url)
 print(test)
+'''
