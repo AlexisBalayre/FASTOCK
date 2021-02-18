@@ -134,50 +134,58 @@ def ChercherProduits(product_dict, id_category, list_ref, list_sizes):
     return product_dict
 
 
-# Homme
-category_homme = "85264"
-list_sizes_h = []
-list_products_h = []
+def HollisterScraper():
+    # Homme
+    category_homme = "85264"
+    list_sizes_h = []
+    list_products_h = []
 
-# Femme
-category_femme = "85265"
-list_sizes_f = []
-list_products_f = []
+    # Femme
+    category_femme = "85265"
+    list_sizes_f = []
+    list_products_f = []
 
-# Connexion à la base de données et récupération des informations
-db = Visualisation()
+    # Connexion à la base de données et récupération des informations
+    db = Visualisation()
 
-# Produits et tailles à rechercher
-for x in db:
-    if x[0] == "M":
-        if x[1] not in list_sizes_h:
-            list_sizes_h.append(x[1])
-        list_products_h.append([x[1], x[2], x[3]])
-    else:
-        if x[1] not in list_sizes_f:
-            list_sizes_f.append(x[1])
-        list_products_f.append([x[1], x[2], x[3]])
+    # Produits et tailles à rechercher
+    for x in db:
+        if x[0] == "M":
+            if x[1] not in list_sizes_h:
+                list_sizes_h.append(x[1])
+            list_products_h.append([x[1], x[2], x[3]])
+        else:
+            if x[1] not in list_sizes_f:
+                list_sizes_f.append(x[1])
+            list_products_f.append([x[1], x[2], x[3]])
 
-# Dictionnaire avec les données recherchées
-product_dict = {}
-for x in list_products_h:
-    product_dict[x[1]] = {}
-for x in list_products_f:
-    product_dict[x[1]] = {}
+    # Dictionnaire avec les données recherchées
+    product_dict = {}
+    for x in list_products_h:
+        product_dict[x[1]] = {}
+    for x in list_products_f:
+        product_dict[x[1]] = {}
 
 
-# Recherche des produits hommes
-print("Début Phase 1")
-product_dict = ChercherProduits(
-    product_dict, category_homme, list_products_h, list_sizes_h
-)
-print("Phase 1 - Terminée")
+    # Recherche des produits hommes
+    print("Début Phase 1")
+    product_dict = ChercherProduits(
+        product_dict, category_homme, list_products_h, list_sizes_h
+    )
+    print("Phase 1 - Terminée")
 
-# Recherche des produits femmes
-print("Début Phase 2")
-product_dict = ChercherProduits(
-    product_dict, category_femme, list_products_f, list_sizes_f
-)
-print("Phase 2 - Terminée")
-print("\n")
-print(product_dict)
+    # Recherche des produits femmes
+    print("Début Phase 2")
+    product_dict = ChercherProduits(
+        product_dict, category_femme, list_products_f, list_sizes_f
+    )
+    print("Phase 2 - Terminée")
+    print("\n")
+    print(product_dict)
+
+    return product_dict
+
+
+while True:
+    products_dict = HollisterScraper()
+    time.sleep(300)
