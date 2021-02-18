@@ -3,9 +3,9 @@ def FormateurUrl(url):
     decomposition_1 = url.split("/")
     index_ref = decomposition_1.index("p") + 1
     decomposition_2 = decomposition_1[index_ref].split("?")
-    product_name = decomposition_2[0]
+    product_name_brut = decomposition_2[0]
     # Nom et ID du produit
-    decomposition_2_bis = product_name.split("-")
+    decomposition_2_bis = product_name_brut.split("-")
     taille_liste = len(decomposition_2_bis)
     product_name = ""
     if len(decomposition_2_bis[taille_liste - 1]) == 1:
@@ -30,7 +30,7 @@ def FormateurUrl(url):
     decomposition_3_bis = category_id_brut.split("&")
     id_category = decomposition_3_bis[0]
 
-    return [product_name, id_product, id_category]
+    return [product_name_brut, product_name, id_product, id_category]
 
 
 # Tests Unitaires
